@@ -2,7 +2,11 @@
 
 namespace Blog_Art\Model;
 
-require_once("model/Manager.php");
+spl_autoload_register(static function(string $fqcn):void{
+  $path = preg_replace('/Blog_Art\\\\/','',$fqcn);
+  $path = str_replace('\\','/',$path).'.php';
+  require_once($path);
+});
 
 use Blog_Art\Model\Manager;
 
@@ -11,9 +15,9 @@ class CreationManager extends Manager
     public function getAll()
     {
         $db = $this->dbConnect();
-        $query = $db -> query('SELECT * FROM creations');
+        $query = $db -> query('SELECT * FROM creations WHERE visibility = "gallery"');
 			  $rows = $query -> fetchAll();
-				
+
         return $rows;
     }
 

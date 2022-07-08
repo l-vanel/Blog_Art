@@ -2,15 +2,15 @@
 
 namespace Blog_Art\Controller;
 
-require_once('model/UserManager.php');
-require_once('model/CreationManager.php');
+spl_autoload_register(static function(string $fqcn):void{
+  $path = preg_replace('/Blog_Art\\\\/','',$fqcn);
+  $path = str_replace('\\','/',$path).'.php';
+  require_once($path);
+});
 
 use Blog_Art\Model\UserManager;
 use Blog_Art\Model\CreationManager;
 
-/**
-*
-*/
 class FrontendController
 {
 
@@ -47,28 +47,16 @@ class FrontendController
   {
     $creations = new CreationManager();
     $creations = $creations->getAll();
-    //var_dump($creations);
-    var_dump ($creations[0]);
-    var_dump ($creations[1]);
-    /*foreach ($creations as $key ) {
-
-       echo $key["id"];
-       echo $key["image"];
-
-    }*/
+    require('view/front/_gallery/grid.php');
   }
-
+/*
   public static function showCreation($id)
   {
       $creation = new CreationManager();
       $creation = $creation->getSingle($id);
       var_dump($creation);
   }
-
-  public static function showAboutPage()
-  {
-    //require('view/front/about.php');
-  }
+*/
 
   public static function login()
   {

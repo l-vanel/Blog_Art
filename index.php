@@ -1,15 +1,12 @@
 <?php
 declare(strict_types=1);
 
-session_start();
+//session_start();
 
 spl_autoload_register(static function(string $fqcn):void{
-  /*$path = str_replace('\\','/',$fqcn).'.php';
-  $path = preg_replace('/Blog_Art\//','',$path);*/
   $path = preg_replace('/Blog_Art\\\\/','',$fqcn);
   $path = str_replace('\\','/',$path).'.php';
   require_once($path);
-
 });
 
 use Blog_Art\Controller\FrontendController;
@@ -47,41 +44,14 @@ try {
         throw new Exception('Aucun identifiant envoyé');
       }
     }
-    //show about page
-    elseif ($_GET['action'] == 'about')
+    else
     {
-      FrontendController::showAboutPage();
-    }
-    //add a like
-    elseif ($_GET['action'] == 'like')
-    {
-      /*if (isset($_GET['id']) && $_GET['id'] > 0) {
-      //post();
-    }
-    else {
-    throw new Exception('Aucun identifiant de billet envoyé');
-    }*/
-    }
-    //add comment
-    elseif ($_GET['action'] == 'addComment')
-    {
-      /*if (isset($_GET['id']) && $_GET['id'] > 0) {
-      if (!empty($_POST['author']) && !empty($_POST['comment'])) {
-      addComment($_GET['id'], $_POST['author'], $_POST['comment']);
-    }
-    else {
-    throw new Exception('Tous les champs ne sont pas remplis !');
-    }
-    }
-    else {
-    throw new Exception('Aucun identifiant de billet envoyé');
-    }*/
+      new FrontendController();
     }
   }
   else
   {
     new FrontendController();
-    //FrontendController::showGallery();
   }
 
 }
