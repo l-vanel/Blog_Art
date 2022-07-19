@@ -26,6 +26,7 @@
   <meta property="og:title" content="home">
   <meta property="og:type" content="website">
 <!-- ==== tailwind ==== -->
+  <script src="https://cdn.tailwindcss.com"></script>
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <link rel="stylesheet" href="public/assets/css/animate.css" />
   <link rel="stylesheet" href="public/assets/css/tailwind.css" />
@@ -38,11 +39,11 @@
 
 <body class="u-body u-xl-mode">
 
-  <?= require_once("view/front/_partials/header.php"); ?>
+  <?php require_once("view/front/_partials/header.php");  ?>
 
   <?= $content; ?>
 
-  <?= require_once("view/front/_partials/footer.php"); ?>
+  <?php require_once("view/front/_partials/footer.php"); ?>
 
 </body>
 </html>
