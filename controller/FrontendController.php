@@ -1,5 +1,4 @@
 <?php
-
 namespace Blog_Art\Controller;
 
 spl_autoload_register(static function(string $fqcn):void{
@@ -18,27 +17,13 @@ class FrontendController
   {
     $creations = new CreationManager();
     $creations = $creations->homepage();
-
     foreach ($creations as $creation ) {
-      if ($creation["section"] == "1.left") {
-        $sec[0] = $creation;
-      }
-      if ($creation["section"] == "1.right") {
-        $sec[1] = $creation;
-      }
-      if ($creation["section"] == "2") {
-        $sec[2] = $creation;
-        $part = explode("/", $sec[2]["description"] );
-      }
-      if ($creation["section"] == "3.left") {
-        $sec[3] = $creation;
-      }
-      if ($creation["section"] == "3.right") {
-        $sec[4] = $creation;
-      }
-      if ($creation["section"] == "4") {
-        $sec[5] = $creation;
-      }
+      if ($creation["section"] == "1.left") { $sec[0] = $creation; }
+      if ($creation["section"] == "1.right") { $sec[1] = $creation; }
+      if ($creation["section"] == "2") { $sec[2] = $creation; $part = explode("/", $sec[2]["description"] ); }
+      if ($creation["section"] == "3.left") { $sec[3] = $creation; }
+      if ($creation["section"] == "3.right") { $sec[4] = $creation; }
+      if ($creation["section"] == "4") { $sec[5] = $creation; }
     }
     require('view/front/home.php');
   }
@@ -66,12 +51,13 @@ class FrontendController
     $login = $user->getLogin($username,$password);
     if ($login) {
       $_SESSION['username'] = $username;
-      //header("Location: index.php");
-      echo "login correcte";
+      require('view/front/profile/logout.php');
+      //echo "login correcte";
     }
     else {
       //return back()->with('name', 'value');
       echo "sorry";
+
       //$message = "Le nom d'utilisateur ou le mot de passe est incorrect.";
     }
     //require('view/frontend/listPostsView.php');

@@ -20,7 +20,7 @@
             <a class="u-active-grey-5 u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-grey-10 u-nav-link u-text-active-grey-90 u-text-grey-80 u-text-hover-grey-90" href="index.php?action=gallery" style="padding: 10px 20px;">Gallery</a>
           </li>
           <li class="u-nav-item">
-            <a class="u-active-grey-5 u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-grey-10 u-nav-link u-text-active-grey-90 u-text-grey-80 u-text-hover-grey-90" href="#" style="padding: 10px 20px;">Login</a>
+            <a class="u-active-grey-5 u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-grey-10 u-nav-link u-text-active-grey-90 u-text-grey-80 u-text-hover-grey-90" href="index.php?action=profile" style="padding: 10px 20px;">Profile</a>
           </li>
         </ul>
       </div>
@@ -29,10 +29,9 @@
           <div class="u-inner-container-layout u-sidenav-overflow">
             <div class="u-menu-close"></div>
             <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2">
-              <li class="u-nav-item"><a class="u-button-style u-nav-link" href="#">Accueil</a></li>
-              <li class="u-nav-item"><a class="u-button-style u-nav-link" href="#">About</a></li>
-              <li class="u-nav-item"><a class="u-button-style u-nav-link">login</a></li>
-              <li class="u-nav-item"><a class="u-button-style u-nav-link">gallery</a></li>
+              <li class="u-nav-item"><a class="u-button-style u-nav-link" href="index.php?action=home">Accueil</a></li>
+              <li class="u-nav-item"><a class="u-button-style u-nav-link" href="index.php?action=gallery">Gallery</a></li>
+              <li class="u-nav-item"><a class="u-button-style u-nav-link" href="index.php?action=profile">Profile</a></li>
             </ul>
           </div>
         </div>
